@@ -10,9 +10,8 @@
 **/*.sql
 
 # 指定
-/frontend/backend/node_modules
 /無使用
-/PortfolioAPI/.idea
+.idea
 /PortfolioAPI/bin
 /PortfolioAPI/obj
 /PortfolioAPI/**/*.sql

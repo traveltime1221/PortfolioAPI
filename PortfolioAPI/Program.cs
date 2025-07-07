@@ -63,6 +63,14 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// 不要被搜尋到
+app.Use(async (context, next) =>
+{
+    context.Response.Headers["X-Robots-Tag"] = "noindex, nofollow";
+    await next();
+});
+
+
 app.UseCors("AllowFrontend");
 app.UseHttpsRedirection();
 app.UseStaticFiles();

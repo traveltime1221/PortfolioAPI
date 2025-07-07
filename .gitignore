@@ -1,0 +1,19 @@
+
+# 排除 SQLite DB
+/DB
+*.db
+*.sqlite
+
+# SQL Server DB
+*.mdf
+*.ldf
+**/*.sql
+
+# 指定
+/frontend/backend/node_modules
+/無使用
+/PortfolioAPI/.idea
+/PortfolioAPI/bin
+/PortfolioAPI/obj
+/PortfolioAPI/**/*.sql
+/**/*.sql

@@ -70,13 +70,13 @@ app.Use(async (context, next) =>
     await next();
 });
 
-
-app.UseCors("AllowFrontend");
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-app.UseAuthorization();
-app.MapControllerRoute(
+// CORS 必須在 UseRouting 和 UseAuthorization 之後、MapEndpoints 之前。
+app.UseHttpsRedirection();      // 強制 https, 通常在最前面
+app.UseStaticFiles();           // 允許處理 wwwroot 內靜態資源（可放前面）
+app.UseRouting();               // 建立路由, 很重要
+app.UseCors("AllowFrontend");   // CORS 要放在 Routing 之後，才會生效！
+app.UseAuthorization();         // 權限檢查
+app.MapControllerRoute(         // 路由映射寫在最後
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 

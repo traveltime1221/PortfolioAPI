@@ -3,11 +3,17 @@ using PortfolioAPI.Data; // use 註冊 DbContext
 using PortfolioAPI.Services;
 using PortfolioAPI.Converters;
 using PortfolioAPI.Models;
-using PortfolioAPI.Services.Services;
+// using PortfolioAPI.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
 
+// 讀取設定檔：允許跨域資料
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>();
+Console.WriteLine("-- Allowed Origins--");
+foreach (var o in allowedOrigins)
+{
+    Console.WriteLine($"AllowedOrigins: {o}");
+}
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -16,7 +22,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<StockService>();
-builder.Services.AddScoped<CrawlerService>();
+// builder.Services.AddScoped<CrawlerService>();
 
 // 注入DI: converter
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new DateTimeConverter()));
@@ -24,6 +30,14 @@ builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializ
 // 注入DI: 設定檔相關參數
 builder.Services.AddHttpClient();
 builder.Services.Configure<CWBSettings>(builder.Configuration.GetSection("CWB"));
+// 注入DI: 從設定檔注入 CrawlerAPI
+builder.Services.AddHttpClient("CrawlerAPI", (serviceProvider, client) =>
+{
+    var config = serviceProvider.GetRequiredService<IConfiguration>();
+    var baseUrl = config["CrawlerAPI:BaseUrl"];
+    client.BaseAddress = new Uri(baseUrl);
+    client.Timeout = TimeSpan.FromSeconds(20);
+});
 
 // 設定 cors 服務
 builder.Services.AddCors(options =>
@@ -37,22 +51,22 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // 測試是否有順利連上資料庫
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    await using var connection = dbContext.Database.GetDbConnection();
-    try
-    {
-        // 嘗試開啟與資料庫的連線
-        await connection.OpenAsync();
-        Console.WriteLine("資料庫連線成功！");
-        await connection.CloseAsync();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"資料庫連線失敗：{ex.Message}");
-    }
-}
+// using (var scope = app.Services.CreateScope())
+// {
+//     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+//     await using var connection = dbContext.Database.GetDbConnection();
+//     try
+//     {
+//         // 嘗試開啟與資料庫的連線
+//         await connection.OpenAsync();
+//         Console.WriteLine("資料庫連線成功！");
+//         await connection.CloseAsync();
+//     }
+//     catch (Exception ex)
+//     {
+//         Console.WriteLine($"資料庫連線失敗：{ex.Message}");
+//     }
+// }
 
 
 // Configure the HTTP request pipeline.

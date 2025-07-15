@@ -12,6 +12,12 @@ public class EarthquakeTWInfo
     public string 圖片 { get; set; }
 }
 
+public class EarthquakeTWInfoRes
+{
+    public string date { get; set; }
+    public List<EarthquakeTWInfo> data { get; set; }
+}
+
 public class EarthquakeWorldInfo
 {
     public string 地震時間 { get; set; }
@@ -22,17 +28,30 @@ public class EarthquakeWorldInfo
     public string 地震位置 { get; set; }
 }
 
-public class TyphoonInfo
-{
-    public string 更新時間 { get; set; }
-    public string 颱風名稱 { get; set; }
-    public List<TyphoonItem> 資訊 { get; set; }
-}
-
 public class TyphoonItem
 {
     public string 地區 { get; set; }
     public string[] 資訊 { get; set; }
 }
+
+public class TyphoonInfo
+{
+    public string 更新時間 { get; set; }
+    public string 颱風名稱 { get; set; }
+    public List<TyphoonItem> 詳細資訊 { get; set; }
+}
+
+public class TyphoonInfoRes
+{
+    public string date { get; set; }
+    public TyphoonInfo data { get; set; }
+}
+
+public class EarthquakeWorldInfoRes
+{
+    public string date { get; set; }
+    public List<EarthquakeWorldInfo> data { get; set; }
+}
+
 
 

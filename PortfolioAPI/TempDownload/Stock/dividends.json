@@ -1,0 +1,65 @@
+[
+  {
+    "id": 0,
+    "ReceivedDate": "2025-01-13T01:27:45",
+    "StockName": "\u51F1\u6A5F\u7F8E\u512A\u914D\u606F",
+    "StockCode": "",
+    "Amount": 92
+  },
+  {
+    "id": 1,
+    "ReceivedDate": "2025-01-14T02:10:25",
+    "StockName": "",
+    "StockCode": "00929",
+    "Amount": 3390
+  },
+  {
+    "id": 2,
+    "ReceivedDate": "2025-01-14T02:05:03",
+    "StockName": "",
+    "StockCode": "00712",
+    "Amount": 6475
+  },
+  {
+    "id": 3,
+    "ReceivedDate": "2025-01-13T01:28:33",
+    "StockName": "",
+    "StockCode": "00919",
+    "Amount": 14390
+  },
+  {
+    "id": 4,
+    "ReceivedDate": "2025-01-13T01:23:08",
+    "StockName": "",
+    "StockCode": "00918",
+    "Amount": 6710
+  },
+  {
+    "id": 5,
+    "ReceivedDate": "2025-01-13T01:27:45",
+    "StockName": "",
+    "StockCode": "2330",
+    "Amount": 14
+  },
+  {
+    "id": 6,
+    "ReceivedDate": "2025-07-13T23:00:36.681163+08:00",
+    "StockName": null,
+    "StockCode": null,
+    "Amount": 0
+  },
+  {
+    "id": 9,
+    "ReceivedDate": "2025-07-13T23:07:58.52021+08:00",
+    "StockName": "test2",
+    "StockCode": "test2",
+    "Amount": 0
+  },
+  {
+    "id": 10,
+    "ReceivedDate": "2025-07-15T23:13:34.212158+08:00",
+    "StockName": "test2",
+    "StockCode": "test2",
+    "Amount": 0
+  }
+]

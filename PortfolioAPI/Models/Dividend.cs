@@ -7,13 +7,8 @@ public enum DividendActionType
     Delete,
 }
 
-public class DividenAction
+public class DividenAction:DividendItem
 {
-    public int id { get; set; }
-    public DateTime? ReceivedDate { get; set; }
-    public string StockName { get; set; }
-    public string StockCode { get; set; }
-    public decimal Amount { get; set; }
     public string Action { get; set; } // 'create' | 'update' | 'delete'
 }
 

@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace PortfolioAPI.Controllers;
 
-public class Dividend : Controller
+public class DividendController : Controller
 {
 
     [HttpGet("/api/Dividends")]
@@ -53,7 +53,8 @@ public class Dividend : Controller
                 break;
             
             case DividendActionType.Delete:
-                _records.RemoveAll(x => x.id == request.id);
+                var r = _records.RemoveAll(x => x.id == request.id);
+                if (r == 0) return NotFound(ApiResponse.Error("找不到該筆資料"));
                 break;
             default:
                 return BadRequest("不支援的 action");

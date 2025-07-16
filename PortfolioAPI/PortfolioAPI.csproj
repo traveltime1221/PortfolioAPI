@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <Folder Include="PythonCrawler\logs\" />
+      <Folder Include="TempDownload\Portfolio\images\" />
       <Folder Include="TempDownload\Spiders\spider_earthquake_info_tw\" />
       <Folder Include="TempDownload\Spiders\spider_earthquake_world\" />
       <Folder Include="TempDownload\Spiders\spider_typhoon_info\" />

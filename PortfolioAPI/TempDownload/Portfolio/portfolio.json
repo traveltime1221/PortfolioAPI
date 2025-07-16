@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "\u6211\u7684\u4F5C\u54C11",
+    "description": "\u9019\u662F\u7B2C\u4E00\u500B\u4F5C\u54C1",
+    "image_url": "/images/work1.png",
+    "tags": [
+      "Vue3",
+      "API"
+    ],
+    "created_at": "2025-07-16T12:34:56Z",
+    "updated_at": "2025-07-16T12:34:56Z",
+    "document_path": "",
+    "external_link": ""
+  },
+  {
+    "id": 2,
+    "title": "\u6211\u7684\u4F5C\u54C11",
+    "description": "\u9019\u662F\u7B2C\u4E8C\u500B\u4F5C\u54C1",
+    "image_url": "/images/work1.png",
+    "tags": [
+      "Vue3",
+      "API"
+    ],
+    "created_at": "2025-07-16T22:59:40.62317+08:00",
+    "updated_at": "2025-07-16T22:59:57.653378+08:00",
+    "document_path": "",
+    "external_link": ""
+  }
+]
